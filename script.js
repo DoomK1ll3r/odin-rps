@@ -10,3 +10,13 @@ function getComputerChoice (){
   }
 }
 
+function getHumanChoice () {
+  const regexOption = new RegExp('^(rock)|(paper)|(scissors)$', "i","m");
+  let isValid = false;
+  do {
+    let choice = prompt("Select (rock, paper, scissors)");
+    if (regexOption.test(choice)) {
+      isValid = true;
+    }
+  } while (isValid == false);
+}

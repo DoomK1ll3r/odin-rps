@@ -70,3 +70,10 @@ function playRound (humanChoice, computerChoice) {
   console.log(`You ${state}\n You: ${humanChoice} Computer: ${computerChoice}\n Your Score: ${humanScore} Computer Score: ${computerScore}`);
 }
 
+function playGame () {
+  for (let i = 0; i < 5; i++) {
+    playRound(getHumanChoice(),getComputerChoice());
+  }
+}
+
+playGame();

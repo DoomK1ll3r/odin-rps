@@ -67,7 +67,9 @@ function playRound (humanChoice, computerChoice) {
       state = "tie";
     }
   }
-  console.log(`You ${state}\n You: ${humanChoice} Computer: ${computerChoice}\n Your Score: ${humanScore} Computer Score: ${computerScore}`);
+  console.log(`You ${state}
+                \n You: ${humanChoice} Computer: ${computerChoice}
+                \n Your Score: ${humanScore} Computer Score: ${computerScore}`);
 }
 
 function playGame () {

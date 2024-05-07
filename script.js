@@ -1,15 +1,22 @@
 let humanScore = 0;
 let computerScore = 0;
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
 
 function getComputerChoice (){
-  const value = Math.floor(Math.random() * 3);
-
-  if ( value == 0 ){
-    return "rock";
-  } else if (value == 1){
-    return "paper";
-  } else {
-    return "scissors";
+  let value = Math.floor(Math.random() * 3);
+  console.log(value);
+  switch(value) {
+    case 0:
+      return "rock";
+      break;
+    case 1:
+      return "paper";
+      break;
+    default:
+      return "scissors";
+      break;
   }
 }
 
@@ -29,7 +36,7 @@ function playRound (humanChoice, computerChoice) {
   let state = '';
 
   if (humanChoice == "rock") {
-    if(computerChoice = "paper") {
+    if(computerChoice == "paper") {
       computerScore += 1;
       state = "lose";
     }
@@ -73,9 +80,10 @@ function playRound (humanChoice, computerChoice) {
 }
 
 function playGame () {
-  for (let i = 0; i < 5; i++) {
-    playRound(getHumanChoice(),getComputerChoice());
-  }
 }
+
+rockButton.addEventListener("click", () => playRound("rock",getComputerChoice()));
+paperButton.addEventListener("click", () => playRound("paper", getComputerChoice()));
+scissorsButton.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 
 playGame();

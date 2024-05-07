@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+const playButton = document.getElementById("play-game");
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
@@ -80,11 +81,28 @@ function playRound (humanChoice, computerChoice) {
   if(humanScore == 5) {
     resultsDiv.innerHTML = `<p>You win the game!
                            <br>Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
+    endGame();
   }
   else if (computerScore == 5) {
     resultsDiv.innerHTML = `<p>You lose!
                             <br>Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
+    endGame();
   }
+}
+
+function endGame () {
+  rockButton.style.display = "none";
+  paperButton.style.display = "none";
+  scissorsButton.style.display = "none";
+  playButton.style.display = "block";
+}
+
+function playGame () {
+  clear();
+  rockButton.style.display = "block";
+  paperButton.style.display = "block";
+  scissors.style.display = "block";
+  playButton.style.display = "none";
 }
 
 function clear () {
@@ -96,4 +114,4 @@ function clear () {
 rockButton.addEventListener("click", () => playRound("rock",getComputerChoice()));
 paperButton.addEventListener("click", () => playRound("paper", getComputerChoice()));
 scissorsButton.addEventListener("click", () => playRound("scissors", getComputerChoice()));
-
+playButton.addEventListener("click", () => playGame());

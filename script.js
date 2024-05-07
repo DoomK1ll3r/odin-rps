@@ -7,7 +7,6 @@ const resultsDiv = document.getElementById("results");
 
 function getComputerChoice (){
   let value = Math.floor(Math.random() * 3);
-  console.log(value);
   switch(value) {
     case 0:
       return "rock";
@@ -78,13 +77,23 @@ function playRound (humanChoice, computerChoice) {
   resultsDiv.innerHTML += `<p>${state}
                 <br> You: ${humanChoice} Computer: ${computerChoice}
                 <br> Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
+  if(humanScore == 5) {
+    resultsDiv.innerHTML = `<p>You win the game!
+                           <br>Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
+  }
+  else if (computerScore == 5) {
+    resultsDiv.innerHTML = `<p>You lose!
+                            <br>Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
+  }
 }
 
-function playGame () {
+function clear () {
+  resultsDiv.innerHTML = ``;
+  humanScore = 0;
+  computerScore = 0;
 }
 
 rockButton.addEventListener("click", () => playRound("rock",getComputerChoice()));
 paperButton.addEventListener("click", () => playRound("paper", getComputerChoice()));
 scissorsButton.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 
-playGame();

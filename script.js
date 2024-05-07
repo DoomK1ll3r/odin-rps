@@ -3,6 +3,7 @@ let computerScore = 0;
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
+const resultsDiv = document.getElementById("results");
 
 function getComputerChoice (){
   let value = Math.floor(Math.random() * 3);
@@ -74,9 +75,9 @@ function playRound (humanChoice, computerChoice) {
       state = "tie";
     }
   }
-  console.log(`You ${state}
-                \n You: ${humanChoice} Computer: ${computerChoice}
-                \n Your Score: ${humanScore} Computer Score: ${computerScore}`);
+  resultsDiv.innerHTML += `<p>${state}
+                <br> You: ${humanChoice} Computer: ${computerChoice}
+                <br> Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
 }
 
 function playGame () {

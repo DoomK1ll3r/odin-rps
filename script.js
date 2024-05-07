@@ -5,6 +5,7 @@ const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
 const resultsDiv = document.getElementById("results");
+let message;
 
 function getComputerChoice (){
   let value = Math.floor(Math.random() * 3);
@@ -75,9 +76,12 @@ function playRound (humanChoice, computerChoice) {
       state = "tie";
     }
   }
-  resultsDiv.innerHTML += `<p>${state}
+  message = document.createElement("p");
+  message.innerHTML = `${state}
                 <br> You: ${humanChoice} Computer: ${computerChoice}
-                <br> Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
+                <br> Your Score: ${humanScore} Computer Score: ${computerScore}`;
+  resultsDiv.prepend(message);
+
   if(humanScore == 5) {
     resultsDiv.innerHTML = `<p>You win the game!
                            <br>Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
@@ -115,3 +119,5 @@ rockButton.addEventListener("click", () => playRound("rock",getComputerChoice())
 paperButton.addEventListener("click", () => playRound("paper", getComputerChoice()));
 scissorsButton.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 playButton.addEventListener("click", () => playGame());
+
+playGame();

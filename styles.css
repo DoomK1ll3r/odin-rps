@@ -3,12 +3,15 @@
 }
 
 * {
+    font-family: Roboto;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 main {
+    color: #fffcfa;
+    background-color:#18182b;
     font-size: 1.8rem;
     display: flex;
     flex-direction: column;
@@ -26,17 +29,31 @@ main {
 }
 
 #results {
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: #0b0b14;
     height: 30%;
+    min-width: 300px;
     min-height: 500px;
     overflow: scroll;
 }
 
-p {
-    padding: 0.75rem 0;
-}
-
 button {
+    border-radius: 0.75rem;
+    border: transparent;
     flex: 2 0 0;
     padding: 0.2rem 0.2rem;
     font-size: 2rem;
+}
+
+.result {
+    padding: 0.75rem 0;
+}
+
+.lose {
+    color: red;
+}
+
+.win {
+    color: green;
 }

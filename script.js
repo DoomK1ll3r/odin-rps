@@ -76,19 +76,19 @@ function playRound (humanChoice, computerChoice) {
       state = "tie";
     }
   }
-  message = document.createElement("p");
-  message.innerHTML = `${state}
+  message = document.createElement("span");
+  message.innerHTML = `<p class="${state} result"><b>${state}</b>
                 <br> You: ${humanChoice} Computer: ${computerChoice}
-                <br> Your Score: ${humanScore} Computer Score: ${computerScore}`;
+                <br> Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
   resultsDiv.prepend(message);
 
   if(humanScore == 5) {
-    resultsDiv.innerHTML = `<p>You win the game!
+    resultsDiv.innerHTML = `<p class="win result"><b>You win the game!</b>
                            <br>Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
     endGame();
   }
   else if (computerScore == 5) {
-    resultsDiv.innerHTML = `<p>You lose!
+    resultsDiv.innerHTML = `<p class="lose result"><b>You lose!</b>
                             <br>Your Score: ${humanScore} Computer Score: ${computerScore}</p>`;
     endGame();
   }
